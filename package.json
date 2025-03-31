@@ -14,7 +14,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --list-different"
+      "prettier --check --log-level log"
     ]
   },
   "dependencies": {
