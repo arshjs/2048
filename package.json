@@ -4,17 +4,20 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "prepare": "node .husky/install.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "check": "prettier --check --ignore-unknown ./src",
-    "format": "prettier --write .",
-    "prepare": "husky"
+    "format": "prettier --write ."
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --check --log-level log"
+    "*.{js,ts,jsx,tsx}": [
+      "eslint"
+    ],
+    "!(*.js|*.ts|*.jsx|*.tsx)": [
+      "prettier --check --ignore-unknown"
     ]
   },
   "dependencies": {
@@ -28,8 +31,9 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.21.0",
+    "eslint": "^9.23.0",
     "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.5",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
